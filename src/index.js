@@ -3,10 +3,26 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {RdxVideo, Overlay, Controls} from 'react-html5-video-editor';
+
+const videoJsOptions = {
+    controls: true,
+    width: 320,
+    height: 240,
+    fluid: false,
+    plugins: {
+        record: {
+            audio: true,
+            video: true,
+            maxLength: 3600,
+            debug: true,
+        }
+    }
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <App { ...videoJsOptions }/>
   </React.StrictMode>,
   document.getElementById('root')
 );
